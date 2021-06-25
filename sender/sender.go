@@ -14,6 +14,10 @@ type Sender struct {
 }
 
 func NewSender(destIp, port string) (*Sender, error) {
+	for {
+		select {}
+
+	}
 	conn, err := net.DialTimeout("tcp", destIp+":"+port, 2*time.Second)
 	if err != nil {
 		return nil, err
