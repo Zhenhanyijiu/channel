@@ -3,6 +3,7 @@ package transport
 import (
 	"encoding/binary"
 	"errors"
+	"fmt"
 	"net"
 	"time"
 )
@@ -48,6 +49,7 @@ func NewTransport(partyType int, ip, port string) (*Transport, error) {
 		if err != nil {
 			return nil, err
 		}
+		fmt.Printf("remoteaddr:%v\n", conn.RemoteAddr())
 		return &Transport{
 			partyType: partyType,
 			address:   ip,
